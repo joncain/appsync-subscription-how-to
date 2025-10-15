@@ -12,15 +12,15 @@ query listWidgetsQuery {
   }
 }
 
-query getWidgetQuery {
-  getWidget(id: "84f43796-10a4-44fd-92cd-1e8d6f033603") {
+query getWidgetQuery($widgetId:ID!) {
+  getWidget(id: $widgetId) {
     name
     price
   }
 }
 
-mutation updateWidgetMutation {
-  updateWidget(input: {id: "84f43796-10a4-44fd-92cd-1e8d6f033603", price: 13.5}) {
+mutation updateWidgetMutation($widgetId:ID!) {
+  updateWidget(input: {id: $widgetId, price: 13.5}) {
     name
     price
     id
