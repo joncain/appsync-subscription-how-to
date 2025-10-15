@@ -1,0 +1,28 @@
+mutation createWidgetMutation {
+  createWidget(input: {name: "Doodad", price: 12.5}) {
+    id
+  }
+}
+
+query listWidgetsQuery {
+  listWidgets {
+    id
+    name
+    price
+  }
+}
+
+query getWidgetQuery {
+  getWidget(id: "84f43796-10a4-44fd-92cd-1e8d6f033603") {
+    name
+    price
+  }
+}
+
+mutation updateWidgetMutation {
+  updateWidget(input: {id: "84f43796-10a4-44fd-92cd-1e8d6f033603", price: 13.5}) {
+    name
+    price
+    id
+  }
+}
