@@ -1,6 +1,8 @@
 mutation createWidgetMutation {
   createWidget(input: {name: "Doodad", price: 12.5}) {
     id
+    name
+    price
   }
 }
 
