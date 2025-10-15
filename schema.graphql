@@ -1,0 +1,38 @@
+type Widget {
+  id: ID!
+  name: String!
+  price: Float!
+}
+
+input CreateWidgetInput {
+  name: String!
+  price: Float!
+}
+
+input UpdateWidgetInput {
+  id: ID!
+  name: String
+  price: Float
+}
+
+type Query {
+  getWidget(id: ID!): Widget
+  listWidgets: [Widget!]!
+}
+
+type Mutation {
+  createWidget(input: CreateWidgetInput!): Widget!
+  updateWidget(input: UpdateWidgetInput!): Widget!
+  deleteWidget(id: ID!): Widget
+}
+
+type Subscription {
+  onWidgetChange: Widget
+    @aws_subscribe(mutations: ["createWidget", "updateWidget", "deleteWidget"])
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
